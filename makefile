@@ -1,7 +1,6 @@
 
 
-all:	dit4c-container-jupyterlab
-
+all:	containers
 
 
 dit4c-container-base: 
@@ -13,6 +12,8 @@ dit4c-container-ipython: dit4c-container-base
 dit4c-container-jupyterlab: dit4c-container-ipython 
 	docker build --tag jguiraudet/dit4c-container-jupyterlab:8.0-cudnn5-devel dockerfile-dit4c-container-jupyterlab
 
+containers:	dit4c-container-jupyterlab
+
 # Create user shared data container
 user-data:
 	docker volume create --name $USER
@@ -22,6 +23,11 @@ user-data:
 run:
 	xdg-open http://localhost:32771
 	nvidia-docker run --rm -p 32771:8080 --volumes-from data_${USER}  jguiraudet/dit4c-container-jupyterlab:8.0-cudnn5-devel
+
+
+test:
+	# Test if nvidia driver can be access correctly
+	nvidia-docker run --rm jguiraudet/dit4c-container-jupyterlab:8.0-cudnn5-devel nvidia-smi
 
 
 
