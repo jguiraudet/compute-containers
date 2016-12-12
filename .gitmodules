@@ -1,0 +1,12 @@
+[submodule "dockerfile-dit4c-container-base"]
+	path = dockerfile-dit4c-container-base
+	url = https://github.com/jguiraudet/dockerfile-dit4c-container-base
+	branch = cuda-ok
+[submodule "dockerfile-dit4c-container-ipython"]
+	path = dockerfile-dit4c-container-ipython
+	url = https://github.com/jguiraudet/dockerfile-dit4c-container-ipython
+	branch = cuda-ok
+[submodule "dockerfile-dit4c-container-jupyterlab"]
+	path = dockerfile-dit4c-container-jupyterlab
+	url = https://github.com/jguiraudet/dockerfile-dit4c-container-jupyterlab
+	branch = cuda-ok
