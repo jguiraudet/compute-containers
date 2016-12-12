@@ -12,7 +12,10 @@ dit4c-container-ipython: dit4c-container-base
 dit4c-container-jupyterlab: dit4c-container-ipython 
 	docker build --tag jguiraudet/dit4c-container-jupyterlab:8.0-cudnn5-devel dockerfile-dit4c-container-jupyterlab
 
-containers:	dit4c-container-jupyterlab
+dit4c-container-tensorflow: dit4c-container-jupyterlab 
+	docker build --tag jguiraudet/dit4c-container-tensorflow:8.0-cudnn5-devel dockerfile-dit4c-container-tensorflow
+
+containers:	dit4c-container-tensorflow
 
 # Create user shared data container
 user-data:
@@ -22,7 +25,7 @@ user-data:
 
 run:
 	xdg-open http://localhost:32771
-	nvidia-docker run --rm -p 32771:8080 --volumes-from data_${USER}  jguiraudet/dit4c-container-jupyterlab:8.0-cudnn5-devel
+	nvidia-docker run --rm -p 32771:8080 --volumes-from data_${USER}  jguiraudet/dit4c-container-tensorflow:8.0-cudnn5-devel
 
 
 test:
