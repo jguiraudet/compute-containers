@@ -24,8 +24,8 @@ user-data:
 		 chown 1000:1000 /home/researcher/shared 
 
 run:
-	xdg-open http://localhost:32771
-	nvidia-docker run --rm -p 32771:8080 --volumes-from data_${USER}  jguiraudet/dit4c-container-tensorflow:8.0-cudnn5-devel
+	xdg-open http://localhost:32772
+	nvidia-docker run --rm -p 32772:8080 --volumes-from data_${USER}  jguiraudet/dit4c-container-tensorflow:8.0-cudnn5-devel
 
 
 test:
